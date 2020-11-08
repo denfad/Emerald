@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -30,12 +31,16 @@ public class MainSceneController implements Initializable {
     private ShapesDao shapes;
     private Shape selectedShape = new Rectangle();
     private boolean isShapeDragged = false, isShapeDragging = false;
+    private boolean isHighLight = false;
 
     @FXML
     private StackPane stackPane;
 
     @FXML
     private Pane pane;
+
+    @FXML
+    private Button button;
 
 
 
@@ -45,6 +50,9 @@ public class MainSceneController implements Initializable {
 
         shapes = new ShapesDao();
 
+        button.setOnMouseClicked(event -> {
+            isHighLight = !isHighLight;
+        });
 
         stackPane.setStyle(" -fx-background-color: #bfa000");
 
@@ -76,6 +84,20 @@ public class MainSceneController implements Initializable {
                 re.setY(startY);
                 re.setHeight(Math.abs(event.getY() - startY));
                 re.setWidth(Math.abs(event.getX() - startX));
+                try {
+                    pane.getChildren().remove(pane.getChildren().size() - 1);
+                } catch (Exception e) {
+                }
+                pane.getChildren().add(re);
+            }
+            else if(isHighLight){
+                Rectangle re = new Rectangle();
+                re.setX(startX);
+                re.setY(startY);
+                re.setHeight(Math.abs(event.getY() - startY));
+                re.setWidth(Math.abs(event.getX() - startX));
+                re.setFill(null);
+                re.setStroke(Color.BLUE);
                 try {
                     pane.getChildren().remove(pane.getChildren().size() - 1);
                 } catch (Exception e) {

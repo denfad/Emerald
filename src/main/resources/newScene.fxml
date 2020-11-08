@@ -4,21 +4,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane minHeight="450.0" minWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.denfad.emerald.controllers.MainSceneController">
+<BorderPane minHeight="450.0" minWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.denfad.emerald.controllers.NewSceneController">
     <center>
         <SplitPane dividerPositions="0.1934673366834171, 0.7738693467336684" prefHeight="200.0" prefWidth="400.0">
             <items>
                 <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                     <children>
                         <TreeView prefHeight="200.0" prefWidth="200.0" />
-                  <Button fx:id="button" mnemonicParsing="false" text="Button" />
+                        <Button fx:id="draw" mnemonicParsing="false" text="draw" />
+                        <Button fx:id="select" mnemonicParsing="false" text="select" />
                     </children>
                 </VBox>
-            <StackPane fx:id="stackPane" SplitPane.resizableWithParent="false">
-               <children>
-                  <Pane fx:id="pane" maxHeight="300.0" maxWidth="300.0" prefHeight="200.0" prefWidth="200.0" />
-               </children>
-            </StackPane>
+                <StackPane fx:id="stackPane" SplitPane.resizableWithParent="false">
+                    <children>
+                        <Pane fx:id="pane" maxHeight="300.0" maxWidth="300.0" prefHeight="200.0" prefWidth="200.0" />
+                    </children>
+                </StackPane>
                 <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
                     <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" />
