@@ -18,6 +18,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.shape.StrokeType;
 import ru.denfad.emerald.dao.ShapesDao;
+import ru.denfad.emerald.uielements.Component;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -71,8 +72,8 @@ public class MainSceneController implements Initializable {
                 re.setWidth(Math.abs(event.getX() - startX));
                 pane.getChildren().add(re);
 
-                for (Node n : shapes.getShapes()) {
-                    System.out.println(n.toString());
+                for (Component n : shapes.getShapes()) {
+                    System.out.println(((Node)n).toString());
                 }
             }
         });
@@ -137,7 +138,7 @@ public class MainSceneController implements Initializable {
                 pane.getChildren().remove(pane.getChildren().size() - 1);
                 if (re.getHeight() > 1 & re.getHeight() > 1) {
                     pane.getChildren().add(re);
-                    shapes.addShape(re);
+                    //shapes.addShape(re);
                     num++;
                 }
             }
