@@ -11,6 +11,7 @@ import ru.denfad.emerald.tools.Drawer;
 import ru.denfad.emerald.tools.HighLighter;
 import ru.denfad.emerald.tools.Selector;
 import ru.denfad.emerald.tools.Tool;
+import ru.denfad.emerald.uielements.CircleComponent;
 import ru.denfad.emerald.uielements.Component;
 import ru.denfad.emerald.uielements.RectangleComponent;
 
@@ -68,11 +69,9 @@ public class NewSceneController implements Initializable {
             double startX = event.getX();
             double startY = event.getY();
 
-            RectangleComponent re = new RectangleComponent();
-            re.setX(startX);
-            re.setY(startY);
-            re.setHeight(Math.abs(event.getY() - startY));
-            re.setWidth(Math.abs(event.getX() - startX));
+           CircleComponent re = new CircleComponent();
+            re.drag(event.getX(), event.getY());
+            re.resize(Math.abs(event.getX() - startX),Math.abs(event.getY() - startY));
             tool.onMousePressed(event, selectedShapes, re, shapes, pane);
         });
 

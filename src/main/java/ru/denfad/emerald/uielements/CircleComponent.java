@@ -1,40 +1,52 @@
 package ru.denfad.emerald.uielements;
 
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.scene.shape.StrokeType;
 
-public class RectangleComponent extends Rectangle implements Component {
-
+public class CircleComponent extends Circle implements Component {
     private boolean isSelect = false;
-
+    private double x,y;
     @Override
     public void drag(double x, double y) {
-        super.setX(x);
-        super.setY(y);
-    }
-
-    @Override
-    public void translate(double dx, double dy) {
-        super.setTranslateX(dx);
-        super.setTranslateY(dy);
+        setLayoutX(x);
+        setLayoutY(y);
+        this.x = x;
+         this.y = y;
     }
 
     @Override
     public void resize(double width, double height) {
-        super.setWidth(width);
-        super.setHeight(height);
+        setRadius(width/2);
+        setLayoutX(x + width/2);
+         setLayoutY(y + width/2);
     }
 
     @Override
     public double getCompCenterX() {
-        return getX() + getWidth() / 2;
+        return getLayoutX();
     }
 
     @Override
     public double getCompCenterY() {
-        return getY() + getHeight() / 2;
+        return getLayoutY();
+    }
+
+    @Override
+    public void translate(double dx, double dy) {
+       super.setTranslateX(dx);
+       super.setTranslateY(dy);
+    }
+
+    @Override
+    public double getWidth() {
+        return getRadius();
+    }
+
+    @Override
+    public double getHeight() {
+        return getRadius();
     }
 
     @Override
@@ -60,5 +72,6 @@ public class RectangleComponent extends Rectangle implements Component {
     public boolean isSelected() {
         return isSelect;
     }
+
 
 }

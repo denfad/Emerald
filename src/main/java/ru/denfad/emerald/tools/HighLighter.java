@@ -4,7 +4,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 import javafx.scene.shape.StrokeType;
 import ru.denfad.emerald.dao.ShapesDao;
 import ru.denfad.emerald.uielements.Component;
@@ -56,8 +55,8 @@ public class HighLighter implements Tool {
     }
 
     private boolean isHighlight(Component c) {
-        System.out.println(c.getCenterX() + " " + c.getCenterY() + " " + startX + " " + startY);
-        if (c.getCenterX() > startX & c.getCenterX() < endX & c.getCenterY() > startY & c.getCenterY() < endY) {
+        System.out.println(c.getCompCenterX() + " " + c.getCompCenterY() + " " + startX + " " + startY);
+        if (c.getCompCenterX() > startX & c.getCompCenterX() < endX & c.getCompCenterY() > startY & c.getCompCenterY() < endY) {
             return true;
         }
         return false;

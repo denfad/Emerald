@@ -25,11 +25,11 @@ public class ShapesDao {
         this.shapes = shapes;
     }
 
-    public Component getShape(int index){
+    public Component getShape(int index) {
         return shapes.get(index);
     }
 
-    public void addShape(Component shape){
+    public void addShape(Component shape) {
         shapes.add(shape);
     }
 }

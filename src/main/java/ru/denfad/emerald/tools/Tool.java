@@ -12,7 +12,10 @@ import java.util.List;
 
 public interface Tool {
     void onMouseDragged(MouseEvent event, List<Component> shapes, ShapesDao shapesDao, Pane pane);
-    void onMousePressed(MouseEvent event,List<Component> shapes, Component component, ShapesDao shapesDao, Pane pane);
-    void onMouseReleased(MouseEvent event,List<Component> shapes, ShapesDao shapesDao, Pane pane);
-    void clear(MouseEvent event,List<Component> shapes, ShapesDao shapesDao, Pane pane);
+
+    void onMousePressed(MouseEvent event, List<Component> shapes, Component component, ShapesDao shapesDao, Pane pane);
+
+    void onMouseReleased(MouseEvent event, List<Component> shapes, ShapesDao shapesDao, Pane pane);
+
+    void clear(MouseEvent event, List<Component> shapes, ShapesDao shapesDao, Pane pane);
 }

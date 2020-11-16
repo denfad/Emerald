@@ -18,14 +18,14 @@ public class Drawer implements Tool {
 
     @Override
     public void onMouseDragged(MouseEvent event, List<Component> shapes, ShapesDao shapesDao, Pane pane) {
-        for(Component selectedShape:shapes) {
-            selectedShape.resize(Math.abs(event.getX() - startX),Math.abs(event.getY()- startY) );
+        for (Component selectedShape : shapes) {
+            selectedShape.resize(Math.abs(event.getX() - startX), Math.abs(event.getY() - startY));
         }
     }
 
     @Override
     public void onMousePressed(MouseEvent event, List<Component> shapes, Component component, ShapesDao shapesDao, Pane pane) {
-        for(Component c: shapes){
+        for (Component c : shapes) {
             c.unSelect();
         }
         shapes.clear();
@@ -37,7 +37,7 @@ public class Drawer implements Tool {
 
     @Override
     public void onMouseReleased(MouseEvent event, List<Component> shapes, ShapesDao shapesDao, Pane pane) {
-        for(Component selectedShape: shapes) {
+        for (Component selectedShape : shapes) {
             if (selectedShape.getWidth() > 1 & selectedShape.getHeight() > 1) {
                 shapesDao.addShape(selectedShape);
             }
